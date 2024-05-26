@@ -1,10 +1,14 @@
 const express = require("express")
+const swaggerUi = require("swagger-ui-express") 
+const swaggerDocs = require("./swagger.json")
 const { scopePerRequest } = require('awilix-express')
 const container = require('./container')
 
 const app = express()
+
 app.use(express.json())
 app.use(scopePerRequest(container))
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 const digimonController = container.resolve('digimonController')
 
