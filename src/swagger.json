@@ -1,0 +1,140 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Digimon",
+        "description": "API para busca e registro de Digimons em banco de dados MongoDB",
+        "contact":{
+            "email": "joaovictorassis03@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/digimons",
+            "description": "API de teste"
+        }
+    ],
+    "paths": {
+        "/digimons": {
+            "get": {
+                "summary": "Listagem de todos os Digimons",
+                "description": "Essa rota vai listar todos os Digimons que foram cadastrados no banco de dados",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Digimons"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/digimons/id/{id}": {
+            "get": {
+                "summary": "Listagem de Digimon pelo seu ID",
+                "description": "Essa rota vai listar um Digimon especificio usando seu ID como referencia.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do Digimon para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Digimons"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/digimons/name/{name}": {
+            "get": {
+                "summary": "Listagem de Digimon pelo seu Nome",
+                "description": "Essa rota vai listar um Digimon especificio usando seu Nome como referencia.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Nome do Digimon para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Digimons"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/digimons/level/{level}": {
+            "get": {
+                "summary": "Listagem de Digimons pelo seu Level",
+                "description": "Essa rota vai listar todos os Digimons de determinado Level.",
+                "parameters": [
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "description": "Level do Digimon para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Digimons"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas":{
+            "Digimons":{
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "String"
+                    },
+                    "name": {
+                        "type": "String"
+                    },
+                    "level": {
+                        "type": "String"
+                    },
+                    "img": {
+                        "type": "String"
+                    }
+                }
+            }
+        }
+    }
+}
