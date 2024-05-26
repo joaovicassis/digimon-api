@@ -1,13 +1,11 @@
-const Digimon = require("../models/digimon")
-
 class DigimonController { 
-    construtor({ digimonService }) {
+    constructor({ digimonService }) {
         this.digimonService = digimonService    
     }   
 
     async getAllDigimons(req, res){
         try{
-            const digimons = await Digimon.find({})
+            const digimons = await this.digimonService.getAllDigimons()
             res.json(digimons)
         }catch(error){
             res.status(500).json({
@@ -19,7 +17,7 @@ class DigimonController {
     async getDigimonsByLevel(req, res){
         try{
             const { level } = req.params
-            const digimons = await Digimon.find({ level })
+            const digimons = await this.digimonService.getDigimonsByLevel(level)
             res.json(digimons)
         }catch (error){
             res.status(500).json({
@@ -31,7 +29,7 @@ class DigimonController {
     async getDigimonsByName(req, res){
         try{
             const { name } = req.params
-            const digimon = await Digimon.findOne({ name })
+            const digimon = await this.digimonService.getDigimonsByName(name)
 
             if(digimon){
                 res.json(digimon)
@@ -41,7 +39,7 @@ class DigimonController {
                 })
             }
         }catch (error){
-            res.status({
+            res.status(500).json({
                 error: 'Falha ao buscar digimon pelo nome'
             })
         }
@@ -50,7 +48,7 @@ class DigimonController {
     async getDigimonsById(req, res){
         try{
             const { id } = req.params
-            const digimon = await Digimon.findById(id)
+            const digimon = await this.digimonService.getDigimonsById(id)
 
             if(digimon){
                 res.json(digimon)

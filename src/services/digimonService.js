@@ -1,7 +1,11 @@
 const axios = require("axios")
-const Digimon = require("..models/Digimon")
+
 
 class DigimonService{
+    constructor({ db }) {
+        this.db = db
+    }
+
     async fetchAndSaveDigimons(){
         try{
             const response = await axios.get('https://digimon-api.vercel.app/api/digimon')
@@ -9,11 +13,27 @@ class DigimonService{
 
 
             // Remove qualquer dado existente no banco de dados e cadastra os dados consumidos 
-            await Digimon.deleteMany({})
-            await Digimon.insertMany(digimons)
+            await this.db.deleteMany({})
+            await this.db.insertMany(digimons)
         }catch (error){
             console.error("Erro ao buscar e salvar Digimons", error)
         }
+    }
+
+    async getAllDigimons(){
+        return await this.db.find({})
+    }
+
+    async getDigimonsByLevel(level){
+        return await this.db.find({ level })
+    }
+
+    async getDigimonsByName(name){
+        return await this.db.find({ name })
+    }
+
+    async getDigimonsById(id){
+        return await this.db.find({ id })
     }
 }
 
