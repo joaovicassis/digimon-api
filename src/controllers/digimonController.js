@@ -31,13 +31,10 @@ class DigimonController {
             const { name } = req.params
             const digimon = await this.digimonService.getDigimonsByName(name)
 
-            if(digimon){
-                res.json(digimon)
-            }else{
-                res.status(404).json({
-                    error: 'Digimon nao encontrado'
-                })
-            }
+            if (!digimon || digimon.length === 0) {
+                return res.status(404).send({ error: 'Digimon não encontrado' })
+              }
+            res.status(200).send(digimon)
         }catch (error){
             res.status(500).json({
                 error: 'Falha ao buscar digimon pelo nome'
@@ -50,13 +47,10 @@ class DigimonController {
             const { id } = req.params
             const digimon = await this.digimonService.getDigimonsById(id)
 
-            if(digimon){
-                res.json(digimon)
-            }else{
-                res.status(404).json({
-                    error: 'Digimon nao encontrado'
-                })
-            }
+            if (!digimon) {
+                return res.status(404).send({ error: 'Digimon não encontrado' })
+              }
+            res.status(200).send(digimon)
         }catch (error){
             res.status(500).json({
                 error: 'Falha ao buscar Digimon pelo ID'
