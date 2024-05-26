@@ -33,7 +33,7 @@ class DigimonService{
     }
 
     async getDigimonsById(id){
-        return await this.db.find({ id })
+        return await this.db.findById(id)
     }
 }
 
