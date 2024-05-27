@@ -11,6 +11,12 @@
 
 ## Endpoints
 
+## Notas
+
+- A aplicação usa como Banco de Dados o MongoDB rodando em nuvem pelo MongoDB Atlas
+- Toda documentação da API pode ser encontrada no caminho http://localhost:3000/api-docs
+- Para este teste foram aplicados conhecimentos em testes unitarios utilizando Jest e Injeção de Dependências 
+
 ### Digimons
 
 **BUSCAR**
