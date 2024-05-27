@@ -6,6 +6,7 @@
 - Requisitos: Node.JS 10+ e npm/yarn.
 - Clone este repositorio e navegue ate ele. 
 - Rode o comando ```npm start``` ou ```yarn start``` 
+- A aplicação estará rodando em: http://localhost:3000/digimons
 
 ## Endpoints
 
