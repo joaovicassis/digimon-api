@@ -7,6 +7,7 @@
 - Clone este repositorio e navegue ate ele. 
 - Rode o comando ```npm start``` ou ```yarn start``` 
 - A aplicação estará rodando em: http://localhost:3000/digimons
+- Use um software de sua preferência para as requisições HTTP - Postman ou Insomnia
 
 ## Endpoints
 
