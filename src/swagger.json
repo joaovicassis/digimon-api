@@ -10,8 +10,12 @@
     },
     "servers": [
         {
-            "url": "http://localhost:3000/digimons",
-            "description": "API de teste"
+            "url": "https://digimon-api-0qt1.onrender.com",
+            "description": "API Deploy"
+        },
+        {
+            "url": "http://localhost:3000",
+            "description": "API local"
         }
     ],
     "paths": {
