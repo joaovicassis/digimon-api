@@ -3,16 +3,22 @@
 
 ## Como usar
 
+- A aplicação pode ser acessada e testada através do link: https://digimon-api-0qt1.onrender.com
+- Use um software de sua preferência para as requisições HTTP - Postman ou Insomnia
+
+### Como usar localmente
+
 - Requisitos: Node.JS 10+ e npm/yarn.
 - Clone este repositorio e navegue ate ele. 
 - Rode o comando ```npm start``` ou ```yarn start``` 
-- A aplicação estará rodando em: http://localhost:3000/digimons
+- A aplicação estará rodando em: http://localhost:3000
 - Use um software de sua preferência para as requisições HTTP - Postman ou Insomnia
 
 ## Notas
 
 - A aplicação usa como Banco de Dados o MongoDB rodando em nuvem pelo MongoDB Atlas
 - Toda documentação da API pode ser encontrada no caminho http://localhost:3000/api-docs
+- O Deploy da aplicação foi feito utilizando a plataforma [Render](https://digimon-api-0qt1.onrender.com) 
 - Para este teste foram aplicados conhecimentos em testes unitarios utilizando Jest e Injeção de Dependências 
 
 ## Endpoints
